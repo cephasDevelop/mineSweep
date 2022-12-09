@@ -1,2 +1,2 @@
 # mineSweep
-# A simple mine sweeper game
+### A simple mine sweeper game
