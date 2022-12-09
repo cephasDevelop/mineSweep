@@ -12,13 +12,44 @@ body {
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(158, 134, 106);
-    border: solid 1px white;
+    border: solid 1px rgb(182, 69, 69);;
 }
 .score{
     width: 402px;
-    height:20px;
-    background-color: red;
+    height:42px;
+    border: solid  1px rgb(182, 69, 69);
+    background-color: rgb(114, 107, 107);
+    display:flex;
+    flex-direction: row;
 }
+
+.bombs-remain{
+    font-family: "sans-serif";
+    color: rgb(61, 16, 184);
+    width: 180px;
+    border: solid 1px rgb(182, 69, 69);;
+    padding:0 4px 0 4px ;
+}
+
+.title{
+    font-family: "sans-serif";
+    color: rgb(61, 16, 184);
+    width: 130px;
+    font-size: 10px;
+    border: solid 1px rgb(182, 69, 69);;
+    padding: 0 4px 0 4px;
+    display:flex;
+    justify-content: center;
+}
+
+.scoring{
+    font-family: "sans-serif";
+    color: rgb(61, 16, 184);
+    width: 90px;
+    border: solid 1px rgb(182, 69, 69);;
+    padding: 0 4px 0 4px;
+}
+
 .grid div{
     height:38px;
     width: 38px;

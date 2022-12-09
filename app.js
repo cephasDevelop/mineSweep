@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const bombsRemain = document.querySelector('.bombs-remain>p');
+    const scoring = document.querySelector('.scoring>p');
+
     const grid = document.querySelector(".grid");
     const row = 10;
     const bombNumber = 20;
@@ -139,10 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 square.classList.add('flagged');
                 square.innerHTML = '🚩';
                 flags++;
+                bombsRemain.innerHTML = `Remaining Bomb : ${20 - flags}`;
+                scoring.innerHTML = `Score : ${flags * 10}`;
+                isWinner();
             } else { 
                 square.classList.remove('flagged');
                 square.innerHTML = '';
                 flags--;
+                bombsRemain.innerHTML = `Remaining Bomb : ${20 - flags}`;
+                scoring.innerHTML = `Score : ${flags * 10}`;
+                
             }
         }
     }
@@ -166,6 +175,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (list[idx + direction[i]].classList.contains('bomb')) ans++;                                   
         }
         return ans;
+    }
+
+    // CHECK FOR WIN
+    function isWinner() { 
+        let compare = 0;
+        for (let i = 0; i < squares.length; i++){
+            if (
+                squares[i].classList.contains('flagged') &&
+                squares[i].classList.contains('bomb')
+            ) { 
+                compare++;
+            }            
+        }
+        if (compare === bombNumber) {
+            isGameOver = true;
+            bombsRemain.innerHTML = `YOU WIN`;
+        }
     }
 
 });
