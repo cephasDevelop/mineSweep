@@ -7,28 +7,34 @@ body {
 }
 
 .grid {
-    height: 400px;
-    width: 400px;
+    height: 402px;
+    width: 402px;
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(158, 134, 106);
-
+    border: solid 1px white;
 }
-
+.score{
+    width: 402px;
+    height:20px;
+    background-color: red;
+}
 .grid div{
-    height:40px;
-    width: 40px;
+    height:38px;
+    width: 38px;
     display:flex;
     justify-content: center;
     align-items: center;
     font: 1.5em sans-serif;
     font-weight: bolder;
     color:rgb(11, 11, 145);
+    border: solid 1px white;
     /* background-color: rgb(199, 194, 194); */
 }
 
 .bomb {
-    background-color: orange;
+    /* background-color: orange; */
+    background-color: rgb(199, 194, 194);
 }
 
 .empty{
@@ -39,6 +45,6 @@ body {
     background-color: rgb(58, 115, 134);
 }
 
-.flaged{
+.flagged{
     background-color: brown;
 }

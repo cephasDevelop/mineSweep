@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bombNumber = 20;
     const squares = [];
     let isGameOver = false;
+    let flags = 0;
 
     const vector = {
             topLeft: [1,11,10],//@ i= 0
@@ -34,7 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // ADD EVENT LITSENER ON EACH SQUARE
             square.addEventListener('click', function (event) {
                 handleClick(square);
-             });
+            });
+            
+            square.oncontextmenu = function (e) {
+                e.preventDefault();
+                flagIt(square);
+            };
         }
 
         
@@ -63,8 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (square.classList.contains('checked') || square.classList.contains('flaged')) return;
 
         if (square.classList.contains('bomb')) {
-            isGameOver = true;
-            console.log("Game Over");
+            theGameOver(square);
         }else { 
             let bombArround = square.getAttribute('data');
             if (bombArround != 0) {
@@ -126,6 +131,33 @@ document.addEventListener('DOMContentLoaded', () => {
         },10);
     }
 
+    // FLAGING THE MINES
+    function flagIt(square) {
+        if (isGameOver) return;
+        if ((!square.classList.contains('checked')) && (flags <= bombNumber)) { 
+            if (!square.classList.contains('flagged')) {
+                square.classList.add('flagged');
+                square.innerHTML = '🚩';
+                flags++;
+            } else { 
+                square.classList.remove('flagged');
+                square.innerHTML = '';
+                flags--;
+            }
+        }
+    }
+
+    // THE GAME OVE CASE
+    function theGameOver(square) {
+        console.log(' GAME OVER !');
+        isGameOver = true;
+
+        squares.forEach((square) => { 
+            if (square.classList.contains('bomb')) {
+                square.innerHTML = '💣';
+            }
+        });
+    }
 
     // ADD THE BOMBS ARROUND EACH SQUARE AND SET IT AS A DATA ATTRIBUTE
     function addBomb(list, idx, direction) { 
@@ -137,3 +169,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
