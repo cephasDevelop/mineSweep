@@ -1,0 +1,30 @@
+body {
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: greenyellow;
+}
+
+.grid {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(158, 134, 106);
+
+}
+
+.grid div{
+    height:40px;
+    width: 40px;
+    /* background-color: rgb(199, 194, 194); */
+}
+
+.bomb {
+    background-color: orange;
+}
+
+.empty{
+    background-color: rgb(199, 194, 194);
+}
