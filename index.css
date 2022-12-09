@@ -18,6 +18,12 @@ body {
 .grid div{
     height:40px;
     width: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font: 1.5em sans-serif;
+    font-weight: bolder;
+    color:rgb(11, 11, 145);
     /* background-color: rgb(199, 194, 194); */
 }
 
@@ -27,4 +33,12 @@ body {
 
 .empty{
     background-color: rgb(199, 194, 194);
+}
+
+.checked {
+    background-color: rgb(58, 115, 134);
+}
+
+.flaged{
+    background-color: brown;
 }
